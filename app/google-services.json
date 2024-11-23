@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "128279615244",
+    "project_id": "pmpm-tarea3-ijg",
+    "storage_bucket": "pmpm-tarea3-ijg.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128279615244:android:85b25b66c3b6fa13211b29",
+        "android_client_info": {
+          "package_name": "com.example.pmpm_tarea3_ijg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "128279615244-861g0afmtao0be60j81gs84008libs67.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvMi4ZVvyO2WmOrxFxdxDG0sUQRZ02QAU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "128279615244-861g0afmtao0be60j81gs84008libs67.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

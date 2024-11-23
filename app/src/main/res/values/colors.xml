@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="amarillo">#F6E652</color>
+    <color name="amarillo_sec">#F6BD20</color>
+    <color name="marron">#9C5200</color>
+    <color name="gris">#41414A</color>
+    <color name="rojo">#C52018</color>
+    <color name="violeta">#3b4cca</color>
+</resources>

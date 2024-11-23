@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_view"
+    app:startDestination="@id/pokemonCapturados_home">
+
+    <fragment
+        android:id="@+id/pokemonCapturados_home"
+        android:name="com.example.pmpm_tarea3_ijg.CapturadosFragment"
+        android:label="Pokemon Caputrados"
+        tools:layout="@layout/fragment_pokemon_capturados" />
+    <fragment
+        android:id="@+id/pokedexFragment"
+        android:name="com.example.pmpm_tarea3_ijg.PokedexFragment"
+        android:label="Pokedex"
+        tools:layout="@layout/fragment_pokedex" />
+    <fragment
+        android:id="@+id/ajustesFragment"
+        android:name="com.example.pmpm_tarea3_ijg.AjustesFragment"
+        android:label="Ajustes"
+        tools:layout="@layout/fragment_ajustes" />
+</navigation>

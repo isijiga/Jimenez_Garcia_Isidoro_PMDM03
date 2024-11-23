@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Capturados"
+        android:id="@+id/capturados_home"
+        android:icon="@drawable/catch_pokemon"
+
+        />
+    <item android:title="Pokedex"
+        android:id="@+id/pokedex_home"
+        android:icon="@drawable/pokedex"
+
+        />
+    <item android:title="Ajustes"
+        android:id="@+id/ajustes_menu"
+        android:icon="@drawable/setting"
+
+        />
+</menu>
