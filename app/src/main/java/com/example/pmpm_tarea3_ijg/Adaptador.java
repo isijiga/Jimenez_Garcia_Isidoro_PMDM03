@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pmpm_tarea3_ijg.databinding.FragmentPokemonCapturadosBinding;
 import com.example.pmpm_tarea3_ijg.databinding.ItemViewBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -34,7 +36,8 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
     private FirebaseFirestore db;
     com.example.pmpm_tarea3_ijg.databinding.FragmentPokemonCapturadosBinding bindingPC;
     ArrayList<PokemonCapturado> pokemonElegidos = new ArrayList<>();
-
+    FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
+    FirebaseUser user = mFirebaseAuth.getCurrentUser();;
     public Adaptador(List<Pokemon> listaName) {
         this.listaName = listaName;
 
@@ -130,7 +133,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
         }
 
         private void inyectardBBDD(PokemonCapturado item, Context context) {
-            db.collection("pokemonCapturados").add(item).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            db.collection("users").document(user.getUid()).collection ("pokemonCapturados").add(item).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {
                     Toast toast = Toast.makeText(context
