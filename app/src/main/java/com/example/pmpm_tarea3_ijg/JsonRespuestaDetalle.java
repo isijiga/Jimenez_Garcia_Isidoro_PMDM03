@@ -1,5 +1,7 @@
 package com.example.pmpm_tarea3_ijg;
 
+import java.util.ArrayList;
+
 public class JsonRespuestaDetalle {
 
 
@@ -8,6 +10,8 @@ public class JsonRespuestaDetalle {
     private String name;
     private Sprite sprites;
     private int order;
+    private Slot[] types= new Slot[2];
+
 
     public int getHeight() {
         return height;
@@ -28,4 +32,10 @@ public class JsonRespuestaDetalle {
     public int getWeight() {
         return weight;
     }
+
+    public Slot getTypes() {
+
+        return types[0];
+    }
+
 }

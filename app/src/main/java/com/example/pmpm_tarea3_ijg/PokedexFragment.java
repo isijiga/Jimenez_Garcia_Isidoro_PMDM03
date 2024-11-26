@@ -34,6 +34,7 @@ public class PokedexFragment extends Fragment {
     private FragmentPokedexBinding binding;
     private Retrofit retrofit;
     private List<Pokemon> pokemonList;
+
     public PokedexFragment() {
 
     }
@@ -50,10 +51,8 @@ public class PokedexFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding= FragmentPokedexBinding.inflate(getLayoutInflater());
+        binding = FragmentPokedexBinding.inflate(getLayoutInflater());
         getData();
-
-        
 
 
     }
@@ -71,10 +70,11 @@ public class PokedexFragment extends Fragment {
         super.onStart();
 
     }
-    public void getData(){
-        pokemonList=new ArrayList<>();
-        pokemonAdapter=new ArrayList<>();
-        retrofit = new  Retrofit.Builder().
+
+    public void getData() {
+        pokemonList = new ArrayList<>();
+        pokemonAdapter = new ArrayList<>();
+        retrofit = new Retrofit.Builder().
                 baseUrl("https://pokeapi.co/api/v2/").
                 addConverterFactory(GsonConverterFactory.create()).
                 build();
@@ -85,7 +85,7 @@ public class PokedexFragment extends Fragment {
         ListCall.enqueue(new Callback<JsonRespuesta>() {
             @Override
             public void onResponse(Call<JsonRespuesta> call, Response<JsonRespuesta> response) {
-                if(!response.isSuccessful()){
+                if (!response.isSuccessful()) {
                     Toast toast = Toast.makeText(getContext(), "Error_onResponse", Toast.LENGTH_SHORT);
                     toast.show();
                 }
@@ -100,7 +100,7 @@ public class PokedexFragment extends Fragment {
 
             @Override
             public void onFailure(Call<JsonRespuesta> call, Throwable t) {
-                Toast toast = Toast.makeText(getContext(), "Error_onFailure "+t.getMessage(), Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getContext(), "Error_onFailure " + t.getMessage(), Toast.LENGTH_LONG);
                 toast.show();
             }
         });

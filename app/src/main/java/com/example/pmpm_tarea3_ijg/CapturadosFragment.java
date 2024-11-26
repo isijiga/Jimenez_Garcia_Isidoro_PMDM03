@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,12 +23,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldPath;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,6 +47,7 @@ public class CapturadosFragment extends Fragment {
     ArrayList<PokemonCapturado> datosRecibidos = new ArrayList<>();
     ArrayList<PokemonCapturado> pokemonCartera = new ArrayList<>();
     private AdaptadorPokeCap adaptador;
+
     public CapturadosFragment() {
         // Required empty public constructor
     }
@@ -63,8 +67,8 @@ public class CapturadosFragment extends Fragment {
         binding = FragmentPokemonCapturadosBinding.inflate(getLayoutInflater());
         getdata();
         binding.recyclerViewCapturados.setLayoutManager(new LinearLayoutManager(getContext()));
-
         binding.recyclerViewCapturados.setAdapter(adaptador);
+
 
     }
 
@@ -85,9 +89,6 @@ public class CapturadosFragment extends Fragment {
     public void getdata() {
 
 
-
-
-
         db.collection("users").document(user.getUid()).collection("pokemonCapturados").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
 
@@ -96,16 +97,30 @@ public class CapturadosFragment extends Fragment {
                         if (!queryDocumentSnapshots.isEmpty()) {
                             List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
                             for (DocumentSnapshot d : list) {
+                                Map<String, Object> pokemonMapa = d.getData();
+                                Map<String, Object> spriteMapa = (Map<String, Object>) pokemonMapa.get("sprites");
+                                Map<String, Object> tipoMapa = (Map<String, Object>) pokemonMapa.get("types");
+                                Map<String, Object> tipoDetalleMapa = (Map<String, Object>) tipoMapa.get("type");
+
+                                Slot slot = new Slot(Integer.parseInt(tipoMapa.get("slot").toString()),new TypePokemon(tipoDetalleMapa.get("name").
+                                        toString()));
                                 PokemonCapturado pokemon =
                                 new PokemonCapturado(
-                                        Integer.parseInt(d.get("height").toString()),
-                                        d.get("name").toString(),
-                                     Integer.parseInt(d.get("order").toString()),
-                                     null,
-                                     Integer.parseInt(d.get("weight").toString()));
+                                        Integer.parseInt(pokemonMapa.get("height").toString())
+                                        ,pokemonMapa.get("name").toString()
+                                        ,Integer.parseInt(pokemonMapa.get("order").toString())
+                                        ,new Sprite(spriteMapa.get("front_default").toString())
+                                        ,Integer.parseInt(pokemonMapa.get("weight").toString())
+                                        ,slot);
 
+                                /*        new PokemonCapturado(
+                                                Integer.parseInt(d.get("height").toString()),
+                                                d.get("name").toString(),
+                                                Integer.parseInt(d.get("order").toString()),
+                                                null,
+                                                Integer.parseInt(d.get("weight").toString()));
 
-
+                                */
 
                                 pokemonCartera.add(pokemon);
 
@@ -116,8 +131,8 @@ public class CapturadosFragment extends Fragment {
 
                     }
                 });
-        adaptador = new AdaptadorPokeCap(pokemonCartera,this.getContext());
+        adaptador = new AdaptadorPokeCap(pokemonCartera, this.getContext());
 
 
-   }
+    }
 }

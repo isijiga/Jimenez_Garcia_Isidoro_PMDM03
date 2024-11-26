@@ -7,10 +7,10 @@
       </SelectionState>
       <SelectionState runConfigName="FirebaseUIActivity">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-11-22T14:51:26.382219Z">
+        <DropdownSelection timestamp="2024-11-26T07:49:58.641781200Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\isiji\.android\avd\Nexus_4_API_24.avd" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\isiji\.android\avd\IJimenez_Tarea1_API_35.avd" />
             </handle>
           </Target>
         </DropdownSelection>

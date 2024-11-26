@@ -13,6 +13,12 @@ public class Sprite {
     Object other;
     Object versions;
 
+    public Sprite(String front_default) {
+
+        this.front_default = front_default;
+
+    }
+
     public String getBack_default() {
         return back_default;
     }

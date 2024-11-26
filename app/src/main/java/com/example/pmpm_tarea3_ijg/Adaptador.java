@@ -1,7 +1,5 @@
 package com.example.pmpm_tarea3_ijg;
 
-import static androidx.databinding.adapters.TextViewBindingAdapter.setText;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +7,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.pmpm_tarea3_ijg.databinding.FragmentPokemonCapturadosBinding;
 import com.example.pmpm_tarea3_ijg.databinding.ItemViewBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,7 +17,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -33,9 +28,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
     private List<Pokemon> listaName;
     private Retrofit retrofit;
-    private FirebaseFirestore db;
+
     com.example.pmpm_tarea3_ijg.databinding.FragmentPokemonCapturadosBinding bindingPC;
     ArrayList<PokemonCapturado> pokemonElegidos = new ArrayList<>();
+    private FirebaseFirestore db;
     FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
     FirebaseUser user = mFirebaseAuth.getCurrentUser();;
     public Adaptador(List<Pokemon> listaName) {
@@ -109,11 +105,13 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
                     }
                     JsonRespuestaDetalle jsonRespuestaDetalle = response.body();
 
-                    PokemonCapturado item = new PokemonCapturado(jsonRespuestaDetalle.getHeight(),
+                    PokemonCapturado item = new PokemonCapturado(
+                            jsonRespuestaDetalle.getHeight(),
                             jsonRespuestaDetalle.getName(),
                             jsonRespuestaDetalle.getOrder(),
                             jsonRespuestaDetalle.getSprites(),
-                            jsonRespuestaDetalle.getWeight());
+                            jsonRespuestaDetalle.getWeight(),
+                            jsonRespuestaDetalle.getTypes());
 
                     pokemonElegidos.add(item);
                     inyectardBBDD(item, itemView.getContext());
