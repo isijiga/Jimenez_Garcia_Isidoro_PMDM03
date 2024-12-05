@@ -8,6 +8,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -99,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
 
 
 }

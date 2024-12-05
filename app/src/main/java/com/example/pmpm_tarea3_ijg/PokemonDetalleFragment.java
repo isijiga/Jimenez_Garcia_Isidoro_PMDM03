@@ -81,10 +81,12 @@ public class PokemonDetalleFragment extends Fragment {
         Bundle b = getArguments();
 
         if (b != null){
-            String nombre = b.getString("nombre");
-            binding.detalleTextview.setText(nombre);
 
-
+            binding.detalleTextview.setText(b.getString("nombre"));
+            binding.detalleType.setText(b.getString("type"));
+            Picasso.get().load(b.getString("url")).into(binding.detalleImageview);
+            binding.detallePeso.setText(b.getInt("peso")+"");
+            binding.detalleAltura.setText(b.getInt("altura")+"");
         }
 
 

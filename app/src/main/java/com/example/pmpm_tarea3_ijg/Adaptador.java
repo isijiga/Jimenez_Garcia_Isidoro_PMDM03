@@ -111,7 +111,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
                             jsonRespuestaDetalle.getOrder(),
                             jsonRespuestaDetalle.getSprites(),
                             jsonRespuestaDetalle.getWeight(),
-                            jsonRespuestaDetalle.getTypes());
+                            jsonRespuestaDetalle.getTypes(),null);
 
                     pokemonElegidos.add(item);
                     inyectardBBDD(item, itemView.getContext());
@@ -131,12 +131,14 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
         }
 
         private void inyectardBBDD(PokemonCapturado item, Context context) {
-            db.collection("users").document(user.getUid()).collection ("pokemonCapturados").add(item).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            db.collection("users").document(user.getUid()).
+                    collection ("pokemonCapturados").add(item).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {
                     Toast toast = Toast.makeText(context
                             , "Pokemon capturado", Toast.LENGTH_SHORT);
                     toast.show();
+
                 }
             })
             ;

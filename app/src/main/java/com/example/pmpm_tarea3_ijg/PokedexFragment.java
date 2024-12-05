@@ -22,6 +22,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.Call;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Path;
 
 
 /**
@@ -34,7 +35,8 @@ public class PokedexFragment extends Fragment {
     private FragmentPokedexBinding binding;
     private Retrofit retrofit;
     private List<Pokemon> pokemonList;
-
+    int maximo = 1152;
+    int aleatorio;
     public PokedexFragment() {
 
     }
@@ -72,6 +74,8 @@ public class PokedexFragment extends Fragment {
     }
 
     public void getData() {
+
+        aleatorio = ((int) (Math.random() * maximo));
         pokemonList = new ArrayList<>();
         pokemonAdapter = new ArrayList<>();
         retrofit = new Retrofit.Builder().
@@ -80,7 +84,7 @@ public class PokedexFragment extends Fragment {
                 build();
 
         JsonPlaceHolderApi pokemonInterface = retrofit.create(JsonPlaceHolderApi.class);
-        Call<JsonRespuesta> ListCall = pokemonInterface.getPokemonList();
+        Call<JsonRespuesta> ListCall = pokemonInterface.getPokemonList(aleatorio,150);
 
         ListCall.enqueue(new Callback<JsonRespuesta>() {
             @Override

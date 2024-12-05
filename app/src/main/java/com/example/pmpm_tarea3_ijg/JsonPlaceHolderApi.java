@@ -11,8 +11,10 @@ import retrofit2.http.Query;
 
 public interface JsonPlaceHolderApi {
 
-    @GET("pokemon/?offset=0&limit=150")
-    Call<JsonRespuesta> getPokemonList();
+    @GET("pokemon/")
+    Call<JsonRespuesta> getPokemonList(
+            @Query("offset") int num,
+            @Query("limit") int limit);
 
 }
 

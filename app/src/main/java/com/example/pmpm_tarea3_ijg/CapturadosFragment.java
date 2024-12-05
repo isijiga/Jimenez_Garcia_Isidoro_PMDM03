@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -64,8 +65,15 @@ public class CapturadosFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        DividerItemDecoration mDividerItemDecoration =
+                new DividerItemDecoration(requireContext(),
+                1);
+
+
+
         binding = FragmentPokemonCapturadosBinding.inflate(getLayoutInflater());
         getdata();
+        binding.recyclerViewCapturados.addItemDecoration(mDividerItemDecoration);
         binding.recyclerViewCapturados.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.recyclerViewCapturados.setAdapter(adaptador);
 
@@ -111,7 +119,8 @@ public class CapturadosFragment extends Fragment {
                                         ,Integer.parseInt(pokemonMapa.get("order").toString())
                                         ,new Sprite(spriteMapa.get("front_default").toString())
                                         ,Integer.parseInt(pokemonMapa.get("weight").toString())
-                                        ,slot);
+                                        ,slot
+                                ,d.getId());
 
                                 /*        new PokemonCapturado(
                                                 Integer.parseInt(d.get("height").toString()),
@@ -134,5 +143,9 @@ public class CapturadosFragment extends Fragment {
         adaptador = new AdaptadorPokeCap(pokemonCartera, this.getContext());
 
 
+
     }
+
+
+
 }

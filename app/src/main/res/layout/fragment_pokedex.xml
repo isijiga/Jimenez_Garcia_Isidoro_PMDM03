@@ -4,12 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PokedexFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:src="@drawable/logo">
 
-
+    </ImageView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
+    </LinearLayout>
 </FrameLayout>
