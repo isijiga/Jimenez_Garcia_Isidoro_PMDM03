@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import android.app.usage.NetworkStats;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -58,9 +59,8 @@ public class MainActivity extends AppCompatActivity {
         if (navHostFragment != null) {
             navController = NavHostFragment.findNavController(navHostFragment);
             NavigationUI.setupWithNavController(binding.bottonnavigationView, navController);
-
-
         }
+
 
         binding.bottonnavigationView.setOnItemSelectedListener(this::onNavItemSelected);
 

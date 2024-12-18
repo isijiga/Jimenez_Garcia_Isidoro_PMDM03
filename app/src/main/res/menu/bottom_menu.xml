@@ -2,17 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:title="Capturados"
+        android:title="@string/catch_pokemon"
         android:id="@+id/capturados_home"
         android:icon="@drawable/catch_pokemon"
 
         />
-    <item android:title="Pokedex"
+    <item android:title="@string/Pokedex"
         android:id="@+id/pokedex_home"
         android:icon="@drawable/pokedex"
 
         />
-    <item android:title="Ajustes"
+    <item
+        android:title="@string/Ajustes"
         android:id="@+id/ajustes_menu"
         android:icon="@drawable/setting"
 

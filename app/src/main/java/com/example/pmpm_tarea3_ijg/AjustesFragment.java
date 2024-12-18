@@ -3,9 +3,12 @@ package com.example.pmpm_tarea3_ijg;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +19,8 @@ import android.widget.Toast;
 
 import com.example.pmpm_tarea3_ijg.databinding.FragmentAjustesBinding;
 import com.firebase.ui.auth.AuthUI;
+
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +36,7 @@ public class AjustesFragment extends Fragment {
     private SharedPreferences sharedPreferences;
     private static final String SHARED_PREFS_NAME = "prefSwitch";
     private static final String KEY_SWITCH_STATE = "switchState";
+    private static final String KEY_SWITCHLANG_STATE = "switchLangState";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -83,16 +89,59 @@ public class AjustesFragment extends Fragment {
 
 
         sharedPreferences = contexto.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE);
+        binding.switchLanguage.setChecked(loadSwitchLangState());
+        binding.switchLanguage.setOnCheckedChangeListener((compoundButton, b) ->
+                onSwitchLangChanged(b)
+        );
         binding.switch1.setChecked(loadSwitchState());
         binding.switch1.setOnCheckedChangeListener((compoundButton, b) ->
                 onSwitchChanged(b)
         );
 
+        binding.buttonAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment dialogo = new DialogFragment();
+                dialogo.show(getActivity().getSupportFragmentManager(), "Acerca de...");
+            }
+            });
 
         return binding.getRoot();
 
     }
 
+    private void cambiarIdioma(String idioma) {
+        Locale locale = new Locale(idioma);
+        Locale.setDefault(locale);
+        Configuration conf = getResources().getConfiguration();
+        conf.setLocale(locale);
+        getResources().updateConfiguration(conf, getResources().getDisplayMetrics());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("idioma", idioma);
+        editor.apply();
+        getActivity().recreate();
+        Toast.makeText(contexto, idioma, Toast.LENGTH_SHORT).show();
+
+}
+
+    private void onSwitchLangChanged(boolean b) {
+
+        if (b){
+            cambiarIdioma("es");
+
+        }else {
+            cambiarIdioma("en");
+        }
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(KEY_SWITCHLANG_STATE, b);
+        editor.apply();
+    }
+
+    private boolean loadSwitchLangState() {
+        return sharedPreferences.getBoolean(KEY_SWITCHLANG_STATE,false);
+    }
 
 
     public void onSwitchChanged(boolean isCkecked){

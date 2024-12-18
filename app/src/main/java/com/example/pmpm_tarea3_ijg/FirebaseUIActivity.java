@@ -56,13 +56,12 @@ public class FirebaseUIActivity extends AppCompatActivity {
                     finish();
 
                 } else {
-                    startActivityForResult(
-                            AuthUI.getInstance()
+                            Intent signInIntent  = AuthUI.getInstance()
                                     .createSignInIntentBuilder()
                                     .setAvailableProviders(proveedores)
                                     .setLogo(R.drawable.logo)
-                                    .build(),
-                            RC_SIGN_IN);
+                                    .build()            ;
+                    startActivity(signInIntent);
 
                 }
 

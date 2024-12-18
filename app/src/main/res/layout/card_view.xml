@@ -36,21 +36,21 @@
                         android:layout_gravity="center_vertical"
                         >
 
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_column="0"
-                        android:layout_marginLeft="35dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/catch_pokemon"/>
+                        <ImageView
+                            android:id="@+id/cvtypeImage"
+                            android:layout_width="50dp"
+                            android:layout_height="56dp"
+                            android:layout_column="0"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp" />
 
                     <TextView
                         android:id="@+id/cvtype"
                         android:layout_column="0"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:layout_marginLeft="35dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="25dp"
                         android:textSize="15dp"
                         android:text="Type"
                         ></TextView>
@@ -66,7 +66,7 @@
 
                         <TextView
                             android:id="@+id/cvtextNombre"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginTop="5dp"
                             android:text="nombrePokemon" />
@@ -76,6 +76,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:gravity="center_horizontal"
                             android:text="CodigoPokemon" />
                     </LinearLayout>
 
@@ -87,8 +88,8 @@
                         android:layout_width="65dp"
                         android:layout_height="65dp"
                         android:layout_column="2"
-                        android:layout_gravity="clip_horizontal"
-                        android:layout_marginRight="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="15dp"
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="15dp"
                         android:background="@drawable/circle"
@@ -98,14 +99,14 @@
 
                     <ImageView
                         android:id="@+id/bottom_delete"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:clickable="true"
                         android:layout_column="3"
-                        android:layout_marginRight="15dp"
+                        android:layout_marginRight="5dp"
                         android:layout_gravity="center_vertical"
                         android:src="@drawable/baseline_delete_forever"
-                        android:visibility="gone" />
+                        android:visibility="visible" />
                 </GridLayout>
 
 

@@ -115,7 +115,7 @@ public class CapturadosFragment extends Fragment {
                                 PokemonCapturado pokemon =
                                 new PokemonCapturado(
                                         Integer.parseInt(pokemonMapa.get("height").toString())
-                                        ,pokemonMapa.get("name").toString()
+                                        ,pokemonMapa.get("name").toString().toUpperCase()
                                         ,Integer.parseInt(pokemonMapa.get("order").toString())
                                         ,new Sprite(spriteMapa.get("front_default").toString())
                                         ,Integer.parseInt(pokemonMapa.get("weight").toString())

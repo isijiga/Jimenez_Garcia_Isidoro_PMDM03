@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="DetalleStyle">
-        <item name="android:textSize">28dp</item>
-        <item name="android:color">@color/violeta</item>
+        <item name="android:textSize">32dp</item>
+        <item name="android:textColor">@color/violeta</item>
         <item name="android:gravity">center</item>
         <item name="itemTextAppearanceActiveBoldEnabled">true</item>
+        <item name="android:textStyle">bold</item>
+
     </style>
 
+    <style name="DetalleStyle_type">
+        <item name="android:textSize">24dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">italic</item>
+
+    </style>
 
 
 </resources>

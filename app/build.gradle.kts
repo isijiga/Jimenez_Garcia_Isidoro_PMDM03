@@ -53,7 +53,7 @@ dependencies {
     implementation ("com.firebaseui:firebase-ui-auth:8.0.2")
     implementation("com.google.firebase:firebase-auth:23.1.0")
     implementation("com.google.android.gms:play-services-auth:19.5.0")
-
+    implementation("androidx.core:core-splashscreen:1.0.1")
     implementation("androidx.navigation:navigation-fragment:2.8.3")
     implementation("androidx.navigation:navigation-ui:2.8.3")
     implementation("androidx.recyclerview:recyclerview:1.3.2")

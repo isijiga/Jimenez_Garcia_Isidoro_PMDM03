@@ -92,7 +92,77 @@ public class AdaptadorPokeCap extends RecyclerView.Adapter<AdaptadorPokeCap.View
             binding.cvtextCod.setText(pokemon.getOrder() + "");
             Picasso.get().load(pokemon.getSprites().getFront_default()).into(binding.cvimageView);
             binding.cvtype.setText(pokemon.getTypes().getType().getName());
+
+            switch (pokemon.getTypes().getType().getName()){
+                case"grass":
+                    binding.cvtypeImage.setImageResource(R.drawable.grass);
+                    break;
+                case "normal":
+                    binding.cvtypeImage.setImageResource(R.drawable.normal);
+                    break;
+                    case "fire":
+                        binding.cvtypeImage.setImageResource(R.drawable.fire);
+                        break;
+                    case "water":
+                        binding.cvtypeImage.setImageResource(R.drawable.water);
+                        break;
+                        case "electric":
+                            binding.cvtypeImage.setImageResource(R.drawable.electric);
+                            break;
+                            case "ground":
+                                binding.cvtypeImage.setImageResource(R.drawable.ground);
+                                break;
+                                case "rock":
+                                    binding.cvtypeImage.setImageResource(R.drawable.rock);
+                                    break;
+                                    case "fairy":
+                                        binding.cvtypeImage.setImageResource(R.drawable.fairy);
+                                        break;
+                                        case "poison":
+                                            binding.cvtypeImage.setImageResource(R.drawable.poison);
+                                            break;
+                                            case "bug":
+                                                binding.cvtypeImage.setImageResource(R.drawable.bug);
+                                                break;
+                                                case "dragon":
+                                                    binding.cvtypeImage.setImageResource(R.drawable.dragon);
+                                                    break;
+                                                    case "psychic":
+                                                        binding.cvtypeImage.setImageResource(R.drawable.psychic);
+                                                        break;
+                                                        case "flying":
+                                                            binding.cvtypeImage.setImageResource(R.drawable.flying);
+                                                            break;
+                                                            case "fighting":
+                                                                binding.cvtypeImage.setImageResource(R.drawable.fight);
+                                                                break;
+
+                                                                case "ghost":
+                                                                    binding.cvtypeImage.setImageResource(R.drawable.ghost);
+                                                                    break;
+
+                                                                    case "ice":
+                                                                        binding.cvtypeImage.setImageResource(R.drawable.ice);
+                                                                        break;
+                                                                        case "steel":
+                                                                            binding.cvtypeImage.setImageResource(R.drawable.steel);
+                                                                            break;
+                                                                            case "dark":
+                                                                                binding.cvtypeImage.setImageResource(R.drawable.dark);
+                                                                                break;
+
+
+
+
+
+
+
+
+            };
+
+
             binding.executePendingBindings();
+
 
 
 

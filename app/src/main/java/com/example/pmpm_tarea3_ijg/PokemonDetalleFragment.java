@@ -60,6 +60,8 @@ public class PokemonDetalleFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
+
+
         super.onCreate(savedInstanceState);
 
 
@@ -82,14 +84,21 @@ public class PokemonDetalleFragment extends Fragment {
 
         if (b != null){
 
-            binding.detalleTextview.setText(b.getString("nombre"));
-            binding.detalleType.setText(b.getString("type"));
+            binding.detalleTextview.setText(b.getString("nombre").toUpperCase());
+            binding.detalleType.setText(b.getString("type").toUpperCase());
             Picasso.get().load(b.getString("url")).into(binding.detalleImageview);
             binding.detallePeso.setText(b.getInt("peso")+"");
             binding.detalleAltura.setText(b.getInt("altura")+"");
         }
 
 
+        binding.toolbar.setNavigationIcon(R.drawable.ic_back);
+        binding.toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
         return binding.getRoot();
     }
 }

@@ -10,6 +10,12 @@
         <item name="android:textSize">18dp</item>
         <item name="android:spacing">1dp</item>
         <item name="itemIconSize">50dp  </item>
+        <item name="android:fontFamily">@font/jersey25regular</item>
+        <item name="android:windowSplashScreenBackground">@color/violeta</item>
+
+        <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_splash</item>
+
+
     </style>
 
     <style name="Theme.PMPM_Tarea3_IJG" parent="Base.Theme.PMPM_Tarea3_IJG" />
