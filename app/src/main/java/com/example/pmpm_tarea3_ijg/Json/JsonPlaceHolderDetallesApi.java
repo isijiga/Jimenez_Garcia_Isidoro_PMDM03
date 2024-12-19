@@ -1,9 +1,8 @@
-package com.example.pmpm_tarea3_ijg;
+package com.example.pmpm_tarea3_ijg.Json;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface JsonPlaceHolderDetallesApi {
 

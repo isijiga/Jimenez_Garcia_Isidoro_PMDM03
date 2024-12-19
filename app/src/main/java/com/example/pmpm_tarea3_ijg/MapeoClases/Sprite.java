@@ -1,4 +1,4 @@
-package com.example.pmpm_tarea3_ijg;
+package com.example.pmpm_tarea3_ijg.MapeoClases;
 
 public class Sprite {
 

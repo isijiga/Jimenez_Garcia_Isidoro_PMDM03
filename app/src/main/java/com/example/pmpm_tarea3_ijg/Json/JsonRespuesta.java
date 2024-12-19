@@ -1,6 +1,6 @@
-package com.example.pmpm_tarea3_ijg;
+package com.example.pmpm_tarea3_ijg.Json;
 
-import java.util.List;
+import com.example.pmpm_tarea3_ijg.MapeoClases.Pokemon;
 
 public class JsonRespuesta {
 

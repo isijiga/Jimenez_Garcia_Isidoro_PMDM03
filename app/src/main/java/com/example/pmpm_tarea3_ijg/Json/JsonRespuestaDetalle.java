@@ -1,6 +1,7 @@
-package com.example.pmpm_tarea3_ijg;
+package com.example.pmpm_tarea3_ijg.Json;
 
-import java.util.ArrayList;
+import com.example.pmpm_tarea3_ijg.MapeoClases.Slot;
+import com.example.pmpm_tarea3_ijg.MapeoClases.Sprite;
 
 public class JsonRespuestaDetalle {
 
@@ -10,7 +11,7 @@ public class JsonRespuestaDetalle {
     private String name;
     private Sprite sprites;
     private int order;
-    private Slot[] types= new Slot[2];
+    private Slot[] types = new Slot[2];
 
 
     public int getHeight() {

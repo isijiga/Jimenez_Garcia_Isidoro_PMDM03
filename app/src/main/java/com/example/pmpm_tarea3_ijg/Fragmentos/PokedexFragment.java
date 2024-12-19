@@ -1,35 +1,27 @@
-package com.example.pmpm_tarea3_ijg;
+package com.example.pmpm_tarea3_ijg.Fragmentos;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
+import com.example.pmpm_tarea3_ijg.Json.JsonPlaceHolderApi;
+import com.example.pmpm_tarea3_ijg.Json.JsonRespuesta;
 import com.example.pmpm_tarea3_ijg.databinding.FragmentPokedexBinding;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+import com.example.pmpm_tarea3_ijg.Data.Adaptador;
+import com.example.pmpm_tarea3_ijg.MapeoClases.Pokemon;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.Call;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Path;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PokedexFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class PokedexFragment extends Fragment {
     List<Pokemon> pokemonAdapter;
     private FragmentPokedexBinding binding;
@@ -42,11 +34,10 @@ public class PokedexFragment extends Fragment {
     }
 
 
-    // TODO: Rename and change types and number of parameters
+
     public static PokedexFragment newInstance(String param1, String param2) {
         PokedexFragment fragment = new PokedexFragment();
         Bundle args = new Bundle();
-
         return fragment;
     }
 
@@ -55,8 +46,6 @@ public class PokedexFragment extends Fragment {
         super.onCreate(savedInstanceState);
         binding = FragmentPokedexBinding.inflate(getLayoutInflater());
         getData();
-
-
     }
 
 

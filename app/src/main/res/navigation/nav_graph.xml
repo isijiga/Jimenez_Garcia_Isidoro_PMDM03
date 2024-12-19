@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/pokemonCapturados_home"
-        android:name="com.example.pmpm_tarea3_ijg.CapturadosFragment"
+        android:name="com.example.pmpm_tarea3_ijg.Fragmentos.CapturadosFragment"
         android:label="Pokemon Caputrados"
         tools:layout="@layout/fragment_pokemon_capturados" />
     <fragment
         android:id="@+id/pokedexFragment"
-        android:name="com.example.pmpm_tarea3_ijg.PokedexFragment"
+        android:name="com.example.pmpm_tarea3_ijg.Fragmentos.PokedexFragment"
         android:label="Pokedex"
         tools:layout="@layout/fragment_pokedex" />
     <fragment
         android:id="@+id/ajustesFragment"
-        android:name="com.example.pmpm_tarea3_ijg.AjustesFragment"
+        android:name="com.example.pmpm_tarea3_ijg.Fragmentos.AjustesFragment"
         android:label="Ajustes"
         tools:layout="@layout/fragment_ajustes" />
 </navigation>

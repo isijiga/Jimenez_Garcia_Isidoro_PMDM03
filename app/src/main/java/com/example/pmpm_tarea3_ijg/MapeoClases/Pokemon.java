@@ -1,10 +1,6 @@
-package com.example.pmpm_tarea3_ijg;
-
-import java.util.List;
-import java.util.Objects;
+package com.example.pmpm_tarea3_ijg.MapeoClases;
 
 public class Pokemon {
-
 
 
     private String name;

@@ -1,36 +1,23 @@
-package com.example.pmpm_tarea3_ijg;
+package com.example.pmpm_tarea3_ijg.Fragmentos;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.Toast;
-
+import com.example.pmpm_tarea3_ijg.DialogFragment;
+import com.example.pmpm_tarea3_ijg.FirebaseUIActivity;
 import com.example.pmpm_tarea3_ijg.databinding.FragmentAjustesBinding;
 import com.firebase.ui.auth.AuthUI;
-
 import java.util.Locale;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AjustesFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class AjustesFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private SharedPreferences sharedPreferences;
@@ -38,17 +25,15 @@ public class AjustesFragment extends Fragment {
     private static final String KEY_SWITCH_STATE = "switchState";
     private static final String KEY_SWITCHLANG_STATE = "switchLangState";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
     private FragmentAjustesBinding binding;
     private Context contexto;
+
     public AjustesFragment() {
-        // Required empty public constructor
+
     }
 
 
-    // TODO: Rename and change types and number of parameters
     public static AjustesFragment newInstance(String param1, String param2) {
         AjustesFragment fragment = new AjustesFragment();
         Bundle args = new Bundle();
@@ -57,11 +42,13 @@ public class AjustesFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.contexto = context;
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -104,7 +91,7 @@ public class AjustesFragment extends Fragment {
                 DialogFragment dialogo = new DialogFragment();
                 dialogo.show(getActivity().getSupportFragmentManager(), "Acerca de...");
             }
-            });
+        });
 
         return binding.getRoot();
 
@@ -121,16 +108,16 @@ public class AjustesFragment extends Fragment {
         editor.putString("idioma", idioma);
         editor.apply();
         getActivity().recreate();
-        Toast.makeText(contexto, idioma, Toast.LENGTH_SHORT).show();
+        Toast.makeText(contexto, idioma == "es" ? "Idioma cambiado a Español" : "Idioma cambiado a Ingles", Toast.LENGTH_SHORT).show();
 
-}
+    }
 
     private void onSwitchLangChanged(boolean b) {
 
-        if (b){
+        if (b) {
             cambiarIdioma("es");
 
-        }else {
+        } else {
             cambiarIdioma("en");
         }
 
@@ -140,15 +127,16 @@ public class AjustesFragment extends Fragment {
     }
 
     private boolean loadSwitchLangState() {
-        return sharedPreferences.getBoolean(KEY_SWITCHLANG_STATE,false);
+        return sharedPreferences.getBoolean(KEY_SWITCHLANG_STATE, false);
     }
 
 
-    public void onSwitchChanged(boolean isCkecked){
+    public void onSwitchChanged(boolean isCkecked) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(KEY_SWITCH_STATE, isCkecked);
         editor.apply();
     }
+
     private boolean loadSwitchState() {
         return sharedPreferences.getBoolean(KEY_SWITCH_STATE, false);
         // false es el valor por defecto

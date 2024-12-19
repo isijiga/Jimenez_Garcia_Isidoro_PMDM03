@@ -1,122 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".AjustesFragment">
+    tools:context=".Fragmentos.AjustesFragment"
+    android:orientation="vertical"
+
+    android:layout_marginTop="25dp"
+    >
 
     <!-- TODO: Update blank fragment layout -->
 
 
 
-    <GridLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-        android:gravity="center">
+    <LinearLayout
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical">
+
+    android:id="@+id/row1"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
+
+
 
             <TextView
-                android:layout_row="0"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="75dp"
+                android:layout_marginStart="75dp"
                 android:text="@string/Cerrar_sesion"
-                android:layout_column="0"></TextView>
-            <Space
-                android:layout_width="150dp"
-                android:layout_height="20dp"></Space>
+                android:layout_weight="1"
+                ></TextView>
 
 
             <ImageView
-
                 android:id="@+id/button3"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:clickable="true"
-                android:gravity="center_vertical"
                 android:contentDescription="logout"
                 android:src="@drawable/cerrarsesion"
-                android:layout_column="1"></ImageView>
-        </LinearLayout>
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"></Space>
-    <LinearLayout
-        android:layout_row="1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="75dp"
-            android:text="@string/eliminarPokemon"
-            android:layout_column="0"></TextView>
-        <Space
-            android:layout_width="80dp"
-            android:layout_height="20dp"></Space>
+                android:layout_marginEnd="40dp"
+               ></ImageView>
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/row2"
+    android:gravity="center_vertical"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/row1"
+    >
+
+    <TextView
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:text="@string/eliminarPokemon"></TextView>
+
         <Switch
-            android:layout_column="1"
+            android:layout_marginEnd="40dp"
             android:id="@+id/switch1"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:gravity="center_vertical"
+
             />
-    </LinearLayout>
-        <LinearLayout
-            android:layout_row="2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical">
+</LinearLayout>
+<LinearLayout
+    android:gravity="center_vertical"
+    android:id="@+id/row3"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/row2"
+    >
             <TextView
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="75dp"
+                android:layout_marginStart="75dp"
                 android:text="@string/cambiarIdioma"
-                android:layout_column="0"></TextView>
-            <Space
-                android:layout_width="80dp"
-                android:layout_height="20dp"></Space>
+                ></TextView>
+
             <Switch
-                android:layout_column="1"
+                android:layout_marginEnd="40dp"
                 android:id="@+id/switchLanguage"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:gravity="center_vertical"
                 />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_row="3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical">
+
+</LinearLayout>
+    <LinearLayout
+
+        android:id="@+id/row4"
+        android:gravity="center_vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/row3"
+        >
             <TextView
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="75dp"
                 android:text="@string/acercade"
-                android:layout_column="0"></TextView>
-            <Space
-                android:layout_width="120dp"
-                android:layout_height="20dp"></Space>
+               ></TextView>
+
             <ImageView
             android:id="@+id/buttonAbout"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:clickable="true"
-            android:gravity="center_vertical"
+                android:layout_marginEnd="40dp"
             android:contentDescription="logout"
             android:src="@drawable/baseline_arrow_forward_ios_24"
-            android:layout_column="1"></ImageView>
-        </LinearLayout>
-    </GridLayout>
+            ></ImageView>
+    </LinearLayout>
 
-</FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

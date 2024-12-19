@@ -1,4 +1,4 @@
-package com.example.pmpm_tarea3_ijg;
+package com.example.pmpm_tarea3_ijg.MapeoClases;
 
 public class PokemonCapturado {
 
@@ -11,7 +11,7 @@ public class PokemonCapturado {
     private String uid;
 
 
-    public PokemonCapturado(int height, String name, int order, Sprite sprites,int weight,Slot types,String uid) {
+    public PokemonCapturado(int height, String name, int order, Sprite sprites, int weight, Slot types, String uid) {
         this.height = height;
         this.name = name;
         this.order = order;

@@ -1,4 +1,4 @@
-package com.example.pmpm_tarea3_ijg;
+package com.example.pmpm_tarea3_ijg.Fragmentos;
 
 import android.os.Bundle;
 
@@ -9,23 +9,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
+import com.example.pmpm_tarea3_ijg.MainActivity;
+import com.example.pmpm_tarea3_ijg.R;
 import com.example.pmpm_tarea3_ijg.databinding.FragmentPokemonDetalleBinding;
 import com.squareup.picasso.Picasso;
 
-import java.util.function.ObjIntConsumer;
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PokemonDetalleFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class PokemonDetalleFragment extends Fragment {
-    String nombre;
+
     FragmentPokemonDetalleBinding binding;
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -37,15 +30,6 @@ public class PokemonDetalleFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PokemonDetalleFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static PokemonDetalleFragment newInstance(String param1, String param2) {
         PokemonDetalleFragment fragment = new PokemonDetalleFragment();
         Bundle args = new Bundle();
@@ -60,18 +44,17 @@ public class PokemonDetalleFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
-
+        ((MainActivity) getActivity()).esconderBarra();
 
         super.onCreate(savedInstanceState);
-
 
 
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
 
+        super.onViewCreated(view, savedInstanceState);
 
 
     }
@@ -79,16 +62,16 @@ public class PokemonDetalleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding= FragmentPokemonDetalleBinding.inflate(inflater,container,false);
+        binding = FragmentPokemonDetalleBinding.inflate(inflater, container, false);
         Bundle b = getArguments();
 
-        if (b != null){
+        if (b != null) {
 
             binding.detalleTextview.setText(b.getString("nombre").toUpperCase());
             binding.detalleType.setText(b.getString("type").toUpperCase());
             Picasso.get().load(b.getString("url")).into(binding.detalleImageview);
-            binding.detallePeso.setText(b.getInt("peso")+"");
-            binding.detalleAltura.setText(b.getInt("altura")+"");
+            binding.detallePeso.setText(b.getInt("peso") + "");
+            binding.detalleAltura.setText(b.getInt("altura") + "");
         }
 
 
@@ -97,6 +80,7 @@ public class PokemonDetalleFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager().popBackStack();
+                ((MainActivity) getActivity()).mostrarBarra();
             }
         });
         return binding.getRoot();

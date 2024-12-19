@@ -77,12 +77,10 @@ public class MainActivity extends AppCompatActivity {
         db.collection("users").document(uid).set(userData);
 
 
-
-
-            }
+    }
 
     private void bienvenida(String uid) {
-        Toast toast = Toast.makeText(this, "Bienvenido "+user.getDisplayName(), Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, "Bienvenid@ " + user.getDisplayName(), Toast.LENGTH_SHORT);
         toast.show();
     }
 
@@ -102,6 +100,12 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    public void esconderBarra() {
+        binding.bottonnavigationView.setVisibility(View.GONE);
+    }
 
+    public void mostrarBarra() {
+        binding.bottonnavigationView.setVisibility(View.VISIBLE);
+    }
 
 }

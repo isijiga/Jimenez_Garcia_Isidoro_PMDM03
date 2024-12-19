@@ -1,43 +1,28 @@
-package com.example.pmpm_tarea3_ijg;
+package com.example.pmpm_tarea3_ijg.Fragmentos;
 
-import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
+import com.example.pmpm_tarea3_ijg.MapeoClases.Sprite;
 import com.example.pmpm_tarea3_ijg.databinding.FragmentPokemonCapturadosBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.SuccessContinuation;
-import com.google.android.gms.tasks.Task;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FieldPath;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import com.example.pmpm_tarea3_ijg.Data.AdaptadorPokeCap;
+import com.example.pmpm_tarea3_ijg.MapeoClases.PokemonCapturado;
+import com.example.pmpm_tarea3_ijg.MapeoClases.Slot;
+import com.example.pmpm_tarea3_ijg.MapeoClases.TypePokemon;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CapturadosFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CapturadosFragment extends Fragment {
 
     private FragmentPokemonCapturadosBinding binding;
@@ -50,7 +35,7 @@ public class CapturadosFragment extends Fragment {
     private AdaptadorPokeCap adaptador;
 
     public CapturadosFragment() {
-        // Required empty public constructor
+
     }
 
     public static CapturadosFragment newInstance(String param1, String param2) {
@@ -67,8 +52,7 @@ public class CapturadosFragment extends Fragment {
 
         DividerItemDecoration mDividerItemDecoration =
                 new DividerItemDecoration(requireContext(),
-                1);
-
+                        1);
 
 
         binding = FragmentPokemonCapturadosBinding.inflate(getLayoutInflater());
@@ -110,17 +94,17 @@ public class CapturadosFragment extends Fragment {
                                 Map<String, Object> tipoMapa = (Map<String, Object>) pokemonMapa.get("types");
                                 Map<String, Object> tipoDetalleMapa = (Map<String, Object>) tipoMapa.get("type");
 
-                                Slot slot = new Slot(Integer.parseInt(tipoMapa.get("slot").toString()),new TypePokemon(tipoDetalleMapa.get("name").
+                                Slot slot = new Slot(Integer.parseInt(tipoMapa.get("slot").toString()), new TypePokemon(tipoDetalleMapa.get("name").
                                         toString()));
                                 PokemonCapturado pokemon =
-                                new PokemonCapturado(
-                                        Integer.parseInt(pokemonMapa.get("height").toString())
-                                        ,pokemonMapa.get("name").toString().toUpperCase()
-                                        ,Integer.parseInt(pokemonMapa.get("order").toString())
-                                        ,new Sprite(spriteMapa.get("front_default").toString())
-                                        ,Integer.parseInt(pokemonMapa.get("weight").toString())
-                                        ,slot
-                                ,d.getId());
+                                        new PokemonCapturado(
+                                                Integer.parseInt(pokemonMapa.get("height").toString())
+                                                , pokemonMapa.get("name").toString().toUpperCase()
+                                                , Integer.parseInt(pokemonMapa.get("order").toString())
+                                                , new Sprite(spriteMapa.get("front_default").toString())
+                                                , Integer.parseInt(pokemonMapa.get("weight").toString())
+                                                , slot
+                                                , d.getId());
 
                                 /*        new PokemonCapturado(
                                                 Integer.parseInt(d.get("height").toString()),
@@ -143,9 +127,7 @@ public class CapturadosFragment extends Fragment {
         adaptador = new AdaptadorPokeCap(pokemonCartera, this.getContext());
 
 
-
     }
-
 
 
 }
