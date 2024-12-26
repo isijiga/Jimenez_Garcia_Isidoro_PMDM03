@@ -40,7 +40,7 @@
 
 
             <ImageView
-                android:id="@+id/button3"
+                android:id="@+id/buttonLogout"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:clickable="true"
