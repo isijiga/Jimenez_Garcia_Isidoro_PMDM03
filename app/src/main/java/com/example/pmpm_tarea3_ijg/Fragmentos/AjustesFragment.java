@@ -54,23 +54,13 @@ public class AjustesFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentAjustesBinding.inflate(inflater, container, false);
 
-        binding.button3.setOnClickListener(new View.OnClickListener() {
+        binding.buttonLogout.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                AuthUI.getInstance()
-                        .signOut(requireContext())
-                        .addOnCompleteListener(task -> {
-                            if (task.isSuccessful()) {
-                                // Cierre de sesión exitoso
-                                // Redirige a la actividad de inicio de sesión o a donde quieras
-                                Intent intent = new Intent(requireContext(), FirebaseUIActivity.class);
-                                startActivity(intent);
-                                requireActivity().finish(); // Cierra la actividad actual
-                            } else {
-                                // Manejar errores
-                                Toast.makeText(requireContext(), "Error al cerrar sesión", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                DialogLogOutFragment dialogoOut = new DialogLogOutFragment();
+                dialogoOut.show(getActivity().getSupportFragmentManager(), "Cerrar Sesión");
+
             }
         });
 

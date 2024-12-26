@@ -15,4 +15,5 @@
     <string name="peso">Weight: </string>
     <string name="altura">Height: </string>
     <string name="acercade">About</string>
+    <string name="string_title_dialog_confirm_log_out">Are you sure you want to close your user session?</string>
 </resources>

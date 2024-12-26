@@ -19,7 +19,8 @@
     <string name="altura">Altura: </string>
     <string name="acercade">Acerca de</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="string_title_dialog_confirm_log_out">"¿Estas seguro que quieres cerrar tu sesion de usuario? "</string>
 
 
 </resources>
