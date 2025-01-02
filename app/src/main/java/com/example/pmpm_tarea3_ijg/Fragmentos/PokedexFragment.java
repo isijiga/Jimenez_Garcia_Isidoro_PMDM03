@@ -21,7 +21,6 @@ import retrofit2.Retrofit;
 import retrofit2.Call;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-
 public class PokedexFragment extends Fragment {
     List<Pokemon> pokemonAdapter;
     private FragmentPokedexBinding binding;
@@ -30,11 +29,7 @@ public class PokedexFragment extends Fragment {
     int maximo = 1152;
     int aleatorio;
     public PokedexFragment() {
-
     }
-
-
-
     public static PokedexFragment newInstance(String param1, String param2) {
         PokedexFragment fragment = new PokedexFragment();
         Bundle args = new Bundle();
@@ -48,22 +43,18 @@ public class PokedexFragment extends Fragment {
         getData();
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         return binding.getRoot();
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
     }
 
     public void getData() {
-
         aleatorio = ((int) (Math.random() * maximo));
         pokemonList = new ArrayList<>();
         pokemonAdapter = new ArrayList<>();
@@ -71,10 +62,8 @@ public class PokedexFragment extends Fragment {
                 baseUrl("https://pokeapi.co/api/v2/").
                 addConverterFactory(GsonConverterFactory.create()).
                 build();
-
         JsonPlaceHolderApi pokemonInterface = retrofit.create(JsonPlaceHolderApi.class);
         Call<JsonRespuesta> ListCall = pokemonInterface.getPokemonList(aleatorio,150);
-
         ListCall.enqueue(new Callback<JsonRespuesta>() {
             @Override
             public void onResponse(Call<JsonRespuesta> call, Response<JsonRespuesta> response) {
@@ -85,8 +74,6 @@ public class PokedexFragment extends Fragment {
                 JsonRespuesta jsonRespuesta = response.body();
                 ArrayList<Pokemon> data = new ArrayList<>(Arrays.asList(jsonRespuesta.getResults()));
                 Adaptador adapter = new Adaptador(data);
-
-
                 binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                 binding.recyclerView.setAdapter(adapter);
             }
@@ -97,6 +84,5 @@ public class PokedexFragment extends Fragment {
                 toast.show();
             }
         });
-
     }
 }

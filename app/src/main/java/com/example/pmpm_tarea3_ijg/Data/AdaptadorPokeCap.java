@@ -28,25 +28,20 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class AdaptadorPokeCap extends RecyclerView.Adapter<AdaptadorPokeCap.ViewHolder> {
-
-
     private SharedPreferences sharedPreferences;
     private ArrayList<PokemonCapturado> listaPokemon;
     private Context context;
     private CardViewBinding binding;
 
-
     public AdaptadorPokeCap(ArrayList<PokemonCapturado> listaPokemon, Context context) {
         this.context = context;
         this.listaPokemon = listaPokemon;
     }
-
     @NonNull
     @Override
     public AdaptadorPokeCap.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         binding = CardViewBinding.inflate(
                 LayoutInflater.from(parent.getContext()), parent, false);
-
         return new ViewHolder(binding);
     }
 
@@ -54,34 +49,24 @@ public class AdaptadorPokeCap extends RecyclerView.Adapter<AdaptadorPokeCap.View
     public void onBindViewHolder(@NonNull AdaptadorPokeCap.ViewHolder holder, int position) {
         PokemonCapturado pokemon = listaPokemon.get(position);
         holder.bind(pokemon);
-
-
     }
 
     @Override
     public int getItemCount() {
         return listaPokemon.size();
     }
-
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         private CardViewBinding binding;
-
         public ViewHolder(CardViewBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
-
-
             sharedPreferences = context.getSharedPreferences("prefSwitch", Context.MODE_PRIVATE);
             boolean switchState = sharedPreferences.getBoolean("switchState", false);
-
             if (switchState) {
                 binding.bottomDelete.setVisibility(View.VISIBLE);
             } else {
                 binding.bottomDelete.setVisibility(View.GONE);
             }
-
-
         }
 
         public void bind(PokemonCapturado pokemon) {
@@ -90,7 +75,6 @@ public class AdaptadorPokeCap extends RecyclerView.Adapter<AdaptadorPokeCap.View
             binding.cvtextCod.setText(pokemon.getOrder() + "");
             Picasso.get().load(pokemon.getSprites().getFront_default()).into(binding.cvimageView);
             binding.cvtype.setText(pokemon.getTypes().getType().getName());
-
             switch (pokemon.getTypes().getType().getName()) {
                 case "grass":
                     binding.cvtypeImage.setImageResource(R.drawable.grass);
@@ -148,20 +132,12 @@ public class AdaptadorPokeCap extends RecyclerView.Adapter<AdaptadorPokeCap.View
                 case "dark":
                     binding.cvtypeImage.setImageResource(R.drawable.dark);
                     break;
-
-
             }
             ;
-
-
             binding.executePendingBindings();
-
-
             binding.cvpokemon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-
                     FragmentManager fm = ((MainActivity) context).getSupportFragmentManager();
                     FragmentTransaction ft = fm.beginTransaction();
                     PokemonDetalleFragment pokemonDetalleFragment = new PokemonDetalleFragment();
@@ -171,14 +147,10 @@ public class AdaptadorPokeCap extends RecyclerView.Adapter<AdaptadorPokeCap.View
                     bundle.putInt("peso", pokemon.getWeight());
                     bundle.putInt("altura", pokemon.getHeight());
                     bundle.putString("url", pokemon.getSprites().getFront_default());
-
                     pokemonDetalleFragment.setArguments(bundle);
-
                     ft.replace(R.id.my_nav_host_fragment, pokemonDetalleFragment)
                             .addToBackStack(null)
                             .commit();
-
-
                 }
             });
 
@@ -186,13 +158,10 @@ public class AdaptadorPokeCap extends RecyclerView.Adapter<AdaptadorPokeCap.View
                 private FirebaseFirestore db = FirebaseFirestore.getInstance();
                 FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
                 FirebaseUser user = mFirebaseAuth.getCurrentUser();
-
                 @Override
                 public void onClick(View view) {
                     /*enlazar con la base de datos y borrar el pokemon*/
-
                     String usuario = user.getUid();
-
                     db.collection("users").
                             document(usuario).
                             collection("pokemonCapturados").
@@ -207,10 +176,8 @@ public class AdaptadorPokeCap extends RecyclerView.Adapter<AdaptadorPokeCap.View
                                     listaPokemon.remove(pokemon);
                                     notifyDataSetChanged();
                                 }
-
                             })
                             .addOnFailureListener(new OnFailureListener() {
-
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
                                     Toast toast = Toast.makeText(context
@@ -219,12 +186,8 @@ public class AdaptadorPokeCap extends RecyclerView.Adapter<AdaptadorPokeCap.View
                                 }
                             })
                     ;
-
-
                 }
             });
         }
-
-
     }
 }

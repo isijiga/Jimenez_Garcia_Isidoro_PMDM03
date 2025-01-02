@@ -52,31 +52,22 @@ public class MainActivity extends AppCompatActivity {
         user = mFirebaseAuth.getCurrentUser();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         Fragment navHostFragment = getSupportFragmentManager().
                 findFragmentById(R.id.my_nav_host_fragment);
-
         if (navHostFragment != null) {
             navController = NavHostFragment.findNavController(navHostFragment);
             NavigationUI.setupWithNavController(binding.bottonnavigationView, navController);
         }
-
-
         binding.bottonnavigationView.setOnItemSelectedListener(this::onNavItemSelected);
-
         comprobarBBDD(user.getUid());
         bienvenida(user.getUid());
-
     }
 
     private void comprobarBBDD(String uid) {
         Map<String, String> userData = new HashMap<>();
         userData.put("nombre", user.getDisplayName());
         userData.put("Mail", user.getEmail());
-
         db.collection("users").document(uid).set(userData);
-
-
     }
 
     private void bienvenida(String uid) {

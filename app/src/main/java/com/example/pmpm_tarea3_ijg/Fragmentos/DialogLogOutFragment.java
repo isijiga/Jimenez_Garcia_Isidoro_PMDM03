@@ -17,10 +17,7 @@ import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 public class DialogLogOutFragment  extends androidx.fragment.app.DialogFragment {
-
-
     public DialogLogOutFragment() {
-
     }
 
     @NonNull
@@ -29,10 +26,9 @@ public class DialogLogOutFragment  extends androidx.fragment.app.DialogFragment 
         Context appContext = requireContext().getApplicationContext();
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setMessage("¿Seguro que quieres cerrar sesión?");
-        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
                 if(isAdded()){
                 AuthUI.getInstance()
                         .signOut(appContext)
@@ -44,18 +40,8 @@ public class DialogLogOutFragment  extends androidx.fragment.app.DialogFragment 
                                 appContext.startActivity(intent);
                             }
                         });}
-
-
             }
         });
-
-
         return builder.create();
     }
-
-
-
-
-
-
 }
