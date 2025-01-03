@@ -94,33 +94,37 @@ En caso de que aparezca error relacionado con caracteres especiales, añadir en 
 
 ## Conclusiones del desarrollador: 
 
-- FirebaseAuth:
+## FirebaseAuth
 
-  El primer “encontronazo” vino con el proceso de logueo de la aplicación , ya que una vez registrado no me permitia introducir la contraseña , lo que entraba en bucle infinito. Para solucionarlo y gracias a foros encontrados a traves de la red, desactive la protección de enumeracion de correo electronico. Ya con esto permitía logar en la app. 
+El primer desafío surgió durante el proceso de inicio de sesión de la aplicación. Una vez registrado, no me permitía introducir la contraseña, lo que provocaba un bucle infinito. Gracias a foros encontrados en la red, desactivé la protección de enumeración de correo electrónico, lo que resolvió el problema y permitió el acceso a la aplicación.
 
-- Libreria Retrofit:
+## Librería Retrofit
 
-   Es la primera vez que la usaba y el mapeo de las diferentes clases ha requerido de mucho tiempo de ver manuales y videos.  La principal dificultad la encontré en crear los tipos de datos correctos para mapear, ya que tenia que conocer bien donde se encontraba el dato especifico que queria encontrar. En algunos casos (como el tipo de pokemon) se encontraba anidado dentro de un array slot[] lo que supueso varios intentos.
+Esta fue mi primera experiencia utilizando Retrofit, y el mapeo de las diferentes clases requirió mucho tiempo de consulta de manuales y videos. La principal dificultad fue crear los tipos de datos correctos para el mapeo, ya que necesitaba conocer bien la ubicación específica de los datos que quería obtener. En algunos casos, como el tipo de Pokémon, los datos estaban anidados dentro de un array `slot[]`, lo que requirió varios intentos.
 
-   La logica para el desarrollo  fueron separar en dos clases la obtención de datos:  JsonRespuesta(listado de pokemons)  y  JsonRespuestaDetalle(pokemon especifico con el detalle y el numero de pagina de la url)  y generar las clases necesarias.
-Una vez obtenida la lista de pokemons, a traves de un listener, inyecto todos los datos del pokemon Caputrado a la base de datos, siguiente la ruta users/pokemonCapturados.
+La lógica de desarrollo consistió en separar la obtención de datos en dos clases: `JsonRespuesta` (listado de Pokémon) y `JsonRespuestaDetalle` (Pokémon específico con detalles y número de página de la URL), y generar las clases necesarias. Una vez obtenida la lista de Pokémon, a través de un listener, inyecté todos los datos del Pokémon capturado en la base de datos, siguiendo la ruta `users/pokemonCapturados`.
 
-- FirebaseFirestore.
+## FirebaseFirestore
 
-   Trabajar con Firestore ha sido desafiante ya que me costó bastante descargar los datos de cada uno de los pokemons capturados y meterlos en una lista de PokemonCapturado. Tras varios fracasos y mucho debug, la opción que funcionaba fue la de crear mapas de tipo <String, Object>    e ir poco a poco separando los datos en el tipo correcto. 
-	
-	Este punto fue decisivo para el desarrollo de la aplicación, ya que a partir de esta pantalla la aplicación comenzaba a ser funcional y parecia que lo peor había pasado. En esta fase y tras algunas pruebas, decidí incorporar el icono con el logo según el tipo de pokemons capturado.  
-	
-	La pantalla de Detalle no me causó grandes inconvenientes ya que la implementaciín fue parecida a la realizada en la Tarea1. SI me quedé con las ganas de poder buscar alguna opcion al pixelado de la imagen cuando se aumentaba el tamaño y poder añadirle alguna que otra caracteristica. Pero volver hacia atrás para incorporar alguna caracteristica adicional implicaría modificar el mapeo de las calses y llevaría más tiempo. 
+Trabajar con Firestore fue desafiante, ya que me costó bastante descargar los datos de cada uno de los Pokémon capturados y meterlos en una lista de `PokemonCapturado`. Tras varios fracasos y mucho debugging, la opción que funcionó fue crear mapas de tipo `<String, Object>` e ir separando los datos en el tipo correcto.
 
-  
-- Pantalla Config.
+Este punto fue decisivo para el desarrollo de la aplicación, ya que a partir de esta pantalla la aplicación comenzaba a ser funcional y parecía que lo peor había pasado. En esta fase y tras algunas pruebas, decidí incorporar el icono con el logo según el tipo de Pokémon capturado.
 
-   Esta pantalla parecía que iba a ser más cómoda de lo que realmene llegó a ser ya que en la opción de deslogueo no conseguía que volveria al inicio de FirebaseUIActivity tras el cuadro de dialogo, ya que perdía el contexto (y las pilas) cuando desde la clase DialogLogOutFragment  transferia la actividad. Finalmente y gracias a tutoriales  logré que con la linea intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)  se lanzara la actividad como una nueva actividad de tarea
+La pantalla de Detalle no me causó grandes inconvenientes, ya que la implementación fue similar a la realizada en la Tarea 1. Me quedé con las ganas de encontrar una solución para el pixelado de la imagen al aumentar su tamaño y añadirle alguna característica adicional. Sin embargo, volver atrás para incorporar características adicionales implicaría modificar el mapeo de las clases y llevaría más tiempo.
 
-- Conclusion final: la tarea me ha parecido bastante compleja comparandola con la primera y segunda tarea (aunque el tiempo para poder realizarla era casi de 2 meses), el trabajar con firestore , (plataforma que desconocia completamente) ha sido una gran sorpresa y seguroq eu volveré a usarla en el futuro por su flexibilidad y sencillez
+## Pantalla de Configuración
 
+Esta pantalla parecía que iba a ser más sencilla de lo que realmente resultó ser. En la opción de deslogueo, no conseguía que la aplicación volviera al inicio de `FirebaseUIActivity` tras el cuadro de diálogo, ya que perdía el contexto y las pilas cuando transfería la actividad desde la clase `DialogLogOutFragment`. Finalmente, gracias a tutoriales, logré que con la línea `intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)` se lanzara la actividad como una nueva actividad de tarea.
+
+## Conclusión Final
+
+La tarea me pareció bastante compleja en comparación con la primera y segunda tarea (aunque el tiempo para realizarla era casi de dos meses). Trabajar con Firestore, una plataforma que desconocía completamente, fue una gran sorpresa y estoy seguro de que volveré a usarla en el futuro por su flexibilidad y sencillez.
 ## Capturas de pantalla
+
+![imagen](https://github.com/user-attachments/assets/43e31243-d698-4e98-a9a7-b73305952e4c)
+![imagen](https://github.com/user-attachments/assets/d1be164e-6f6e-457b-b64b-dc7af60fcfbe)
+![imagen](https://github.com/user-attachments/assets/38bc23cc-261c-4e09-bdb4-c9c8b23a1c87)
+![imagen](https://github.com/user-attachments/assets/aeaaa7be-530d-4756-a8aa-107eeb3b6f7f)
 
 
 
